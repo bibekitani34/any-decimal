@@ -1,0 +1,118 @@
+import java.util.*;
+import java.lang.Math;
+
+public class ttt
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number in fractional octal: ");
+        double input = sc.nextDouble();
+
+        String doubleAsString = String.valueOf(input);
+        int indexOfDecimal = doubleAsString.indexOf(".");
+
+        String int_part = doubleAsString.substring(0, indexOfDecimal);
+        String dec_part = doubleAsString.substring(indexOfDecimal+1);
+
+        double total = 0;
+
+        for (int i = 0; i < int_part.length(); i++)
+        {
+            int power = int_part.length() - i - 1;
+            int x = Integer.parseInt(Character.toString(int_part.charAt(i)));
+
+            total += x * Math.pow(8, power);
+        }
+
+        for (int i = 0; i < dec_part.length(); i++)
+        {
+            int power = 0 - i - 1;
+
+            int x = Integer.parseInt(Character.toString(dec_part.charAt(i)));
+
+            total += x * Math.pow(8,  power);
+
+        }
+
+        System.out.println("The required decimal is " + total);
+
+        //for binary
+
+        System.out.print("Enter number in fractional binary: ");
+         input = sc.nextDouble();
+
+         doubleAsString = String.valueOf(input);
+         indexOfDecimal = doubleAsString.indexOf(".");
+
+         int_part = doubleAsString.substring(0, indexOfDecimal);
+         dec_part = doubleAsString.substring(indexOfDecimal+1);
+
+         total = 0;
+
+        for (int i = 0; i < int_part.length(); i++)
+        {
+            int power = int_part.length() - i - 1;
+            int x = Integer.parseInt(Character.toString(int_part.charAt(i)));
+
+            total += x * Math.pow(2, power);
+        }
+
+        for (int i = 0; i < dec_part.length(); i++)
+        {
+            int power = 0 - i - 1;
+
+            int x = Integer.parseInt(Character.toString(dec_part.charAt(i)));
+
+            total += x * Math.pow(2,  power);
+
+        }
+
+        System.out.println("The required decimal of binary is " + total);
+
+
+        //for hexadecimal values
+
+        String hstring = "0123456789ABCDEF";
+        System.out.print("Enter number in fractional hexadecimal: ");
+        String inp = sc.next();
+
+        String doubleAsStrin = String.valueOf(inp);
+        int indexOfDecima = doubleAsStrin.indexOf(".");
+
+       String int_part1 = doubleAsStrin.substring(0, indexOfDecima);
+       String dec_part1 = doubleAsStrin.substring(indexOfDecima+1);
+
+        total = 0;
+
+        for (int i = 0; i < int_part1.length(); i++)
+        {
+
+            int power = int_part1.length() - i - 1;
+
+            int n = hstring.indexOf(int_part1.charAt(i));
+            total += n * Math.pow(16, power);
+
+        }
+
+        for (int i = 0; i < dec_part1.length(); i++)
+        {
+            int power = 0 - i - 1;
+
+//
+            int n = hstring.indexOf(dec_part1.charAt(i));
+            total += n * Math.pow(16,  power);
+
+        }
+
+        System.out.println("The required decimal of hexadecimal number i s"+ total);
+
+    }
+
+    private static void print(Object o) {
+        System.out.print(o);
+    }
+
+}
+
